@@ -1,0 +1,55 @@
+.header-image {
+    float: left;
+}
+
+.top-header {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+nav {
+    background-color: #8b0000;
+}
+
+.nav-link {
+    color: #ffff;
+    background-color: #8b0000;
+    margin-left: 30px;
+}
+
+.nav-link:hover {
+    color: black;
+}
+
+#page-header {
+    margin: 1%;
+    padding: 1%;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+form {
+    background: 0 !important;
+    border: 1px solid black !important;
+}
+
+#data-form {
+    left: 10% !important;
+}
+
+[type='text'],
+[type='email'] {
+    width: 96%;
+    padding: 10px !important;
+    margin: 10px !important;
+}
+
+.label-rel,
+.radio-group,
+#relationship {
+    margin-left: 10px !important;
+    padding-left: 10px !important;
+}
+
+#relationship {
+    width: 96% !important;
+}

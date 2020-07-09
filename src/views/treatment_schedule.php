@@ -17,7 +17,6 @@
     <script src="/cvd/src/scripts/javascript/popper.js"></script>
     <script src="/cvd/src/scripts/javascript/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
-
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/treatment.css" />
     <script src="/cvd/src/scripts/javascript/treatment.js"></script>
