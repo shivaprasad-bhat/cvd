@@ -45,7 +45,7 @@
             <div class="col">
                 <div id="page-header">
                     <h1>Treatment Schedule</h1>
-                    <a href="./download_schedule.php">Download the Schedule</a>
+                    <a href="./download_schedule.php"><u>Download the Schedule</u></a>
                 </div>
             </div>
         </div>

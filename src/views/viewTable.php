@@ -40,16 +40,19 @@
     <br><br>
     <?php
     $contents = "";
+    $filter = "";
     if (isset($_POST["submit"])) {
-        $query = "SELECT patientID, MobileNo, eventDate, eventType, InvMName, CondName FROM treatmentschedule";
+        $query = "SELECT * FROM treatmentschedule";
         $type = trim(htmlspecialchars(stripslashes($_POST["type"])));
         if ($type === "patient") {
             $option = htmlspecialchars(stripslashes($_POST["patient"]));
             if ($option === "all") {
                 $query .= " WHERE 1";
+                $filter = "All Patient Details";
             } else if ($option === "pid") {
                 $selected = $_POST["pids"];
                 $query .= " WHERE patientID = '" . $selected . "'";
+                $filter = "Specific Patient Details with id $selected";
             }
         } else if ($type === "date") {
             $option = $_POST["date-option"];
@@ -57,19 +60,35 @@
                 $from = $_POST["from-date"];
                 $to = $_POST["to-date"];
                 $query .= " WHERE eventDate BETWEEN '" . $from . "' AND '" . $to . "'";
+                $filter = "Date Range from $from to $to";
             } else if ($option === "s-date") {
                 $d = $_POST["specific-date"];
                 $query .= " WHERE eventDate = '" . $d . "'";
+                $filter = "Date $d";
             }
         } else if ($type === "event") {
             $option = htmlspecialchars(stripslashes($_POST["event"]));
             if ($option === "all") {
                 $query .= " ORDER BY eventType";
+                $filter = "All Event Details";
             } else  if ($option === "s-event") {
-                $query .= " ORDER BY eventType";
+                $selected = $_POST["events"];
+                $query .= "WHERE eventType = $selected";
+                $filter = "Specific Event with id $selected";
             }
         }
 
+        echo '
+        <head class="container" style="margin-top:0px;">
+            <div class="row">
+                <div class="col">
+                    <div style="text-align: center;">
+                        <h2>Filter : ' . $filter . '</h2>
+                    </div>
+                </div>
+            </div>
+        </head>
+        ';
         require('../scripts/php/connect.php');
         $events = array("", "Medication", "Doctor Visit", "Investigations", "Symptoms");
         $result = $conn->query($query);
@@ -78,20 +97,25 @@
             $contents = '<section class="container"><div class="row"><div class="col"><div class="table-responsive"><table class="table table-bordered table-light table-striped"><thead><tr><th>Patient Id</th><th>Mobile Num</th><th>Date</th><th>Event</th><th>Description</th></tr></thead><tbody>';
             while ($row = $result->fetch_array()) {
                 $eType = intval($row["eventType"]);
-                if ($eType == 3) {
+                if ($eType === 3) {
                     if ($row["InvMName"] == NULL) {
                         $description = "NA";
                     } else {
                         $description = strval($row["InvMName"]);
                     }
-                } else if ($eType == 4) {
+                } else if ($eType === 4) {
                     if ($row["CondName"] == NULL) {
                         $description = "NA";
                     } else {
                         $description = strval($row["CondName"]);
                     }
+                } else {
+                    $description = "NA";
                 }
-                $contents .= "<tr><td>" . $row["patientID"] . "</td><td>" . $row["MobileNo"] . "</td><td>" . $row["eventDate"] . "</td><td>" . $events[$eType] . "</td><td>" . $description . "</td></tr>";
+                $timestamp = $row["eventDate"];
+                $timestamp = strtotime($timestamp);
+                $timestamp = date('d-M-Y', $timestamp);
+                $contents .= "<tr><td>" . $row["patientID"] . "</td><td>" . $row["MobileNo"] . "</td><td>" . $timestamp . "</td><td>" . $events[$eType] . "</td><td>" . $description . "</td></tr>";
             }
             $contents .= "</tbody></table></div></div></div></section>";
         }
