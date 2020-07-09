@@ -4,6 +4,13 @@ if (!isset($_SESSION['user'])) {
     session_start();
 }
 
+/**
+ * Method that gives the data to update the table.
+ * if $isString is true, return NULL or given String enclosed with single quotation
+ * else return NULL or integer value of the given data
+ * @author Shivaprasad Bhat
+ * @param string $string, bool $isString
+ */
 function formatData($string, $isString)
 {
     if ($isString === TRUE) {
@@ -42,10 +49,8 @@ if (isset($_POST['submit'])) {
 
     $conn->autoCommit(FALSE);
     $conn->begin_transaction();
-    if ($Email == '') {
-        $Email == 'NULL';
-    }
 
+    //Set Query
     $query = "UPDATE patient SET PatName = $PatName,
     MobileNo = $MobileNo, AltMobileNo = $AltMobileNo,
     Email = $Email, Address = $Address, KAddress = $KAddress,
@@ -54,11 +59,16 @@ if (isset($_POST['submit'])) {
     FCGEmail = $FCGEmail, FCGMNO1 = $FCGMNO1, FCGMNO2 = $FCGMNO2,
     Relationship = $Relationship, IsOwnPhone = $IsOwnPhone,
     IsSmartPhone = $IsSmartPhone, PatDesc = $PatDesc, Registered = $Registered WHERE id = $id";
-    echo $query . "<br>";
+
+    //Execute
     $result = $conn->query($query);
+    //Close Connection established
+    $conn->close();
+
     if ($result === TRUE) {
         $conn->commit();
         $conn->autoCommit(TRUE);
+
         echo '
             <script language="javascript">
             alert("Updated the patient info.")
@@ -68,6 +78,7 @@ if (isset($_POST['submit'])) {
     } else {
         $conn->rollback();
         $conn->autoCommit(TRUE);
+
         echo '
             <script language="javascript">
             alert("Something went wrong. Can\'t update the information now. Please try again")
@@ -75,5 +86,4 @@ if (isset($_POST['submit'])) {
             </script>
         ';
     }
-    $conn->close();
 }
