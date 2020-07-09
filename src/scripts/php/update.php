@@ -62,13 +62,13 @@ if (isset($_POST['submit'])) {
 
     //Execute
     $result = $conn->query($query);
-    //Close Connection established
-    $conn->close();
+
 
     if ($result === TRUE) {
         $conn->commit();
         $conn->autoCommit(TRUE);
-
+        //Close Connection established
+        $conn->close();
         echo '
             <script language="javascript">
             alert("Updated the patient info.")
@@ -78,7 +78,8 @@ if (isset($_POST['submit'])) {
     } else {
         $conn->rollback();
         $conn->autoCommit(TRUE);
-
+        //Close Connection established
+        $conn->close();
         echo '
             <script language="javascript">
             alert("Something went wrong. Can\'t update the information now. Please try again")
