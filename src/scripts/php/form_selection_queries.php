@@ -20,7 +20,7 @@ if (!$conn->connect_error) {
     #get user details
     $userName = trim(strval($_SESSION['user']));
     $query = "SELECT * FROM `caregiver` WHERE CGName like '" . ucfirst($userName) . "%'";
-    
+
     $result = $conn->query($query);
 
     if ($result->num_rows == 1) {

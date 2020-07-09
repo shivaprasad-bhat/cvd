@@ -66,6 +66,13 @@ if (isset($_SESSION['user'])) {
             </script>
         ';
         }
+    } else {
+        echo '
+            <script language="javascript">
+            alert("Can\'t process your request. Please submit the data before processing")
+            window.location.href="/cvd/src/"
+            </script>
+        ';
     }
 }
 function runTransaction($conn, $patientId, $mobileNumber, $familyCaregiverName, $relationship, $CGId, $isOwnPhone, $surveyDate, $doctorid, $advice, $doctorVisitFrequency, $diseases, $investigationName, $investigationFrequency, $symptoms)
@@ -79,11 +86,11 @@ function runTransaction($conn, $patientId, $mobileNumber, $familyCaregiverName, 
     $result1 = $conn->query($patientQuery);
     $result2 = $conn->query($patientRecruitmentQuery);
     $result3 = $conn->query($patientDoctorQuery);
-    
+
 
     $qQueryError = FALSE;
     foreach ($diseases as $d) {
-        
+
         $dQuery = "INSERT INTO patientmedsymptrack(patientId,medicationConditionId,STDate) VALUES($patientId, $d, '$surveyDate')";
         $res = $conn->query($dQuery);
         if ($res === FALSE) {
@@ -93,7 +100,7 @@ function runTransaction($conn, $patientId, $mobileNumber, $familyCaregiverName, 
 
     $iQueryError = FALSE;
     for ($i = 0; $i < count($investigationName); $i++) {
-       
+
         $iQuery = "INSERT INTO patientinvordered(patientID,STDate,investigationId,Frequency) VALUES($patientId, '$surveyDate', $investigationName[$i], '$investigationFrequency[$i]')";
         $res = $conn->query($iQuery);
         if ($res === FALSE) {
@@ -105,14 +112,14 @@ function runTransaction($conn, $patientId, $mobileNumber, $familyCaregiverName, 
 
     $sQueryError = FALSE;
     foreach ($symptoms as $symptom) {
-        
+
         $sQuery = "INSERT INTO patientmedsymptrack(patientId,medicationConditionId,STDate) VALUES($patientId, $symptom, '$surveyDate')";
         $res = $conn->query($sQuery);
         if ($res === FALSE) {
             $sQueryError = TRUE;
         }
     }
-    
+
     $d = strtotime("$surveyDate + 1 year");
     $future = strval(date('Y-m-d', $d));
 
@@ -124,7 +131,7 @@ function runTransaction($conn, $patientId, $mobileNumber, $familyCaregiverName, 
     $procRes1 = $conn->query($proc1);
     $procRes2 = $conn->query($proc2);
     // $procRes3 = $conn->query($proc3);
-    
+
 
 
 
