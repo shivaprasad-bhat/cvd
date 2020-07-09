@@ -1,0 +1,47 @@
+body {
+    font-family: 'Trebuchet MS';
+    background-image: linear-gradient(
+        to bottom,
+        rgba(255, 235, 205, 0.2),
+        rgba(255, 235, 205, 1)
+    );
+    height: 100%;
+    background-attachment: fixed;
+}
+nav {
+    height: 90px;
+}
+
+section {
+    text-align: justify;
+    font-size: medium;
+}
+
+.content-header {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 60%;
+    width: 60%;
+    font: bolder;
+    font-family: 'Comic Sans MS';
+}
+
+.content-header > h1,
+.content-header > h2 {
+    padding-top: 20px;
+}
+
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #efcfa5;
+    text-align: center;
+}
+
+#body-text {
+    text-align: justify;
+}

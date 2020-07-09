@@ -1,0 +1,88 @@
+login-card {
+    margin: 20px;
+}
+
+#login-box {
+    border: 1px solid #e9d1ba;
+    margin-top: 6%;
+    z-index: 1;
+    box-shadow: 1px 2px 5px 1px;
+}
+.login-box {
+    margin-left: 30%;
+    margin-right: 30%;
+}
+[type='text'],
+[type='passwrod'] {
+    margin-top: 10px;
+    width: 100%;
+}
+
+button[type='submit'] {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: x-large;
+}
+
+.buttonClass {
+    background-color: #60b28f;
+    width: 98%;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.button-cancle {
+    background-color: grey;
+    width: 98%;
+    height: 40px;
+    border-radius: 10px;
+}
+#login-page-image {
+    height: 70%;
+    width: 70%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+[type='submit'] {
+    border: none;
+    cursor: pointer;
+}
+fieldset {
+    background-color: #e9d1ba;
+    border: 1px dashed #e9d1ba;
+    max-width: 500px;
+    padding: 16px;
+    width: auto;
+}
+
+.fieldset-reg {
+    background-color: #e9d1ba;
+    border: 1px dashed #e9d1ba;
+    padding: 10px;
+    margin-left: -35%;
+    width: 800px;
+    max-width: none;
+}
+
+legend {
+    font-size: x-small;
+    text-align: center;
+    display: block;
+    padding-left: 2px;
+    padding-right: 2px;
+    border: none;
+    width: auto;
+}
+
+.heading {
+    font-size: xx-large;
+}
+
+@media only screen and (max-width: 850px) {
+    .login-box {
+        margin: 0;
+    }
+}
