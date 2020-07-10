@@ -122,17 +122,13 @@ function runTransaction($conn, $patientId, $mobileNumber, $familyCaregiverName, 
 
     $d = strtotime("$surveyDate + 1 year");
     $future = strval(date('Y-m-d', $d));
-
     $proc1 = "CALL proctreatSched1($patientId,'$surveyDate', '$future')";
     $proc2 = "CALL proctreatSched2($patientId,'$surveyDate', '$future')";
-    echo "$proc1 <br> $proc2";
-    $proc3 = "CALL proctreatSched3($patientId,$surveyDate, $future";
+    $proc3 = "CALL proctreatSched3($patientId,'$surveyDate', '$future')";
 
     $procRes1 = $conn->query($proc1);
     $procRes2 = $conn->query($proc2);
     $procRes3 = $conn->query($proc3);
-
-
 
 
     if ($result1 === TRUE && $result2 === TRUE && $result3 === TRUE && $qQueryError === FALSE && $iQueryError === FALSE && $sQueryError === FALSE && $procRes1 === TRUE && $procRes2 === TRUE && $procRes3 === TRUE) {
