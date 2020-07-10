@@ -23,7 +23,7 @@ $conn->close();
                             Update Patient Details
                         </h4>
                         <div class="select-id">
-                            <label for="edit-id">Choose patient id to be deleted from the list:</label>
+                            <label for="edit-id">Choose patient id to be updated from the list:</label>
                             <input class="form-control" list="edit-ids" name="edit-id" id="edit-id" required>
 
                             <datalist id="edit-ids">

@@ -14,7 +14,6 @@ function formatData($data)
     return trim(stripslashes(htmlspecialchars($data)));
 }
 
-
 # allow to hit the script only if user session is set in the server with unique id
 
 
@@ -79,7 +78,7 @@ function runTransaction($conn, $patientId, $mobileNumber, $familyCaregiverName, 
 {
     $conn->autoCommit(FALSE);
     $conn->begin_transaction();
-    $patientQuery = "INSERT INTO patient(id, PatName, MobileNo, isOwnPhone, FCGName, Relationship, caregiverId) VALUES($patientId , 'NULL' ,  $mobileNumber , $isOwnPhone, $familyCaregiverName, $relationship, $CGId)";
+    $patientQuery = "INSERT INTO patient(id, MobileNo, isOwnPhone, FCGName, Relationship, caregiverId) VALUES($patientId,  $mobileNumber , $isOwnPhone, $familyCaregiverName, $relationship, $CGId)";
     $patientRecruitmentQuery = "INSERT INTO patientrecruitment(patientId, SurveyDate, LastDVisitDate, doctorId, PhyComplianceAdvice, DVisitFrequency, dietId, exerciseId) VALUES($patientId , '$surveyDate' , '$surveyDate', $doctorid, '$advice', '$doctorVisitFrequency', 1, 1)";
     $patientDoctorQuery = "INSERT INTO patientdoctor (patientId,DId,AssignDate,PhyComplianceAdvice) VALUES($patientId, $doctorid, '$surveyDate', '$advice')";
 
