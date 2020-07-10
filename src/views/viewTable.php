@@ -77,6 +77,7 @@
                 $filter = "Specific Event with id $selected";
             }
         }
+        $query .= " ORDER BY eventDate";
 
         echo '
         <head class="container" style="margin-top:0px;">

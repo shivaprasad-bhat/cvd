@@ -40,7 +40,6 @@ $_SESSION["page"] = isset($_SESSION["page"]) ? $_SESSION["page"] : "index";
                 echo '<a class="nav-item nav-link link-text" href="/cvd/src/views/treatment_schedule.php">Treatment Schedule</a>';
                 echo '<a class="nav-item nav-link link-text" href="/cvd/src/views/collect_data.php">Collect Data</a>';
                 echo '<a class="nav-item nav-link link-text" href="/cvd/src/views/update_patient.php">Update Patient Details</a>';
-                echo '<a class="nav-item nav-link link-text" href="/cvd/src/views/treatment_schedule.php">Treatment Schedule</a>';
             } else {
                 echo '<a href="/cvd/src/" class="nav-item nav-link">About the Project</a>
                     <a href="/cvd/src/views/selfCare.php" class="nav-item nav-link">Self Care</a>
