@@ -3,47 +3,56 @@
 if (!isset($_SESSION['user'])) {
     session_start();
 }
-if (isset($_POST['submit'])) {
-    require('../scripts/php/connect.php');
-    $id = intval($_POST['edit-id']);
-    //Get Doctor details
-    $query = "SELECT * FROM doctor";
-    $result = $conn->query($query);
-    if ($result->num_rows > 0) {
-        $did = array();
-        $dname = array();
-        while ($row = $result->fetch_assoc()) {
-            $did[] = $row['id'];
-            $dname[] = $row['DName'];
+if (isset($_SESSION['user'])) {
+    if (isset($_POST['submit'])) {
+        require('../scripts/php/connect.php');
+        $id = intval($_POST['edit-id']);
+        //Get Doctor details
+        $query = "SELECT * FROM doctor";
+        $result = $conn->query($query);
+        if ($result->num_rows > 0) {
+            $did = array();
+            $dname = array();
+            while ($row = $result->fetch_assoc()) {
+                $did[] = $row['id'];
+                $dname[] = $row['DName'];
+            }
         }
-    }
-    //Diet details
-    $query = "SELECT * FROM `dietsupmaster`";
-    $result = $conn->query($query);
-    if ($result->num_rows > 0) {
-        $dietid = array();
-        $dietname = array();
-        while ($row = $result->fetch_assoc()) {
-            $dietid[] = $row['id'];
-            $dietname[] = $row['DSPlanName'];
+        //Diet details
+        $query = "SELECT * FROM `dietsupmaster`";
+        $result = $conn->query($query);
+        if ($result->num_rows > 0) {
+            $dietid = array();
+            $dietname = array();
+            while ($row = $result->fetch_assoc()) {
+                $dietid[] = $row['id'];
+                $dietname[] = $row['DSPlanName'];
+            }
         }
-    }
-    //Excersise Details 
-    $query = "SELECT * FROM `exlsmmaster`";
-    $result = $conn->query($query);
-    if ($result->num_rows > 0) {
-        $eid = array();
-        $ename = array();
-        while ($row = $result->fetch_assoc()) {
-            $eid[] = $row['id'];
-            $ename[] = $row['ELPlanName'];
+        //Excersise Details 
+        $query = "SELECT * FROM `exlsmmaster`";
+        $result = $conn->query($query);
+        if ($result->num_rows > 0) {
+            $eid = array();
+            $ename = array();
+            while ($row = $result->fetch_assoc()) {
+                $eid[] = $row['id'];
+                $ename[] = $row['ELPlanName'];
+            }
         }
+    } else {
+        echo '
+            <script language="javascript">
+            alert("Something Went Wrong. Please submit the id to be deleted and try again")
+            window.location.href="/cvd/src/views/collect_data.php"
+            </script>
+        ';
     }
 } else {
     echo '
             <script language="javascript">
-            alert("Something Went Wrong. Please submit the id to be deleted and try again")
-            window.location.href="/cvd/src/views/collect_data.php"
+            alert("Login first to see this page")
+            window.location.href="/cvd/src/"
             </script>
         ';
 }

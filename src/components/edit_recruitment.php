@@ -1,3 +1,7 @@
+<?php
+$dvisitFrequency = ['Monthly', 'Weekly', 'Daily', 'Fortnightly', '2 Months', '3 Months', '6 Months', 'Yearly'];
+?>
+
 <head class="container">
     <div class="row">
         <div class="col">
@@ -26,14 +30,15 @@
                         <input class="form-control" type="text" name="med-advice" placeholder="Physical Medication Advice" value="<?php echo $PhyMedicationAdvice; ?>">
                         <label for="doctor-visit-frequency">Doctor Visit Frequency *</label>
                         <select class="form-control" name="doctor-visit-frequency" id="doctor-visit-frequency" required>
-                            <option value="daily">Daily</option>
-                            <option value="weekly">Weekly</option>
-                            <option value="fortnightly">Fortnightly</option>
-                            <option value="Monthly">Monthly</option>
-                            <option value="2 Months">2 Months</option>
-                            <option value="3 Months">3 Months</option>
-                            <option value="6 Months" selected>6 Months</option>
-                            <option value="Yearly">Yearly</option>
+                            <?php
+                            foreach ($dvisitFrequency as $d) {
+                                if ($d === $DVisitFrequency) {
+                                    echo '<option value="' . $d . '" selected>' . $d . '</option>';
+                                } else {
+                                    echo '<option value="' . $d . '">' . $d . '</option>';
+                                }
+                            }
+                            ?>
                         </select>
                         <input class="form-control" type="text" name="weight" placeholder="Weight" value="<?php echo $Weight; ?>">
                         <label for="w-unit-id">Weight Unit Id</label>

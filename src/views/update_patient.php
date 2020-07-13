@@ -2,16 +2,25 @@
 if (!isset($_SESSION['user'])) {
     session_start();
 }
-require('../scripts/php/connect.php');
-$query = "SELECT * FROM `patient`";
-$result = $conn->query($query);
-$pId = array();
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_array()) {
-        $pId[] = $row['id'];
+if (isset($_SESSION['user'])) {
+    require('../scripts/php/connect.php');
+    $query = "SELECT * FROM `patient`";
+    $result = $conn->query($query);
+    $pId = array();
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_array()) {
+            $pId[] = $row['id'];
+        }
     }
+    $conn->close();
+} else {
+    echo '
+            <script language="javascript">
+            alert("Login first to see this page")
+            window.location.href="/cvd/src/"
+            </script>
+        ';
 }
-$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
