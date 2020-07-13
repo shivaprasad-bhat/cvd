@@ -43,13 +43,14 @@ form {
     margin: 10px !important;
 }
 
-.label-rel,
-.radio-group,
-#relationship {
+label,
+select,
+[type='date'] {
     margin-left: 10px !important;
     padding-left: 10px !important;
 }
 
-#relationship {
+[type='date'],
+select {
     width: 96% !important;
 }

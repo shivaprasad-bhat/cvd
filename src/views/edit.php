@@ -9,7 +9,6 @@ if (isset($_POST['submit'])) {
     $query = "SELECT * FROM `patient` WHERE id = $id";
     $result = $conn->query($query);
     $row = $result->fetch_assoc();
-    $conn->close();
 
     if ($row) {
         $PatName = $row["PatName"];
@@ -30,7 +29,39 @@ if (isset($_POST['submit'])) {
         $FCGMNO2 = $row["FCGMNO2"];
         $Relationship = $row["Relationship"];
         $PatDesc = $row["PatDesc"];
+        $caregiverId = $row["caregiverId"];
     }
+
+    $query = "SELECT * FROM `patientrecruitment` WHERE patientId = $id";
+    $result = $conn->query($query);
+    $row = $result->fetch_assoc();
+
+    if ($row) {
+        $LastDVisitDate = $row["LastDVisitDate"];
+        $PhyDiagnosis = $row["PhyDiagnosis"];
+        $PhyComplianceAdvice = $row["PhyComplianceAdvice"];
+        $PhyMedicationAdvice = $row["PhyMedicationAdvice"];
+        $DVisitFrequency = $row["DVisitFrequency"];
+        $Weight = $row["Weight"];
+        $WUnitId = $row["WUnitID"];
+        $Height = $row["Height"];
+        $HUnitId = $row["HUnitID"];
+        $WaistCircum = $row["WaistCircum"];
+        $WCUnitId = $row["WCUnitID"];
+        $WaistHipRatio = $row["WaistHipRatio"];
+        $HeartRate = $row["HeartRate"];
+        $RespiratoryRate = $row["RespiratoryRate"];
+        $BPSystolic = $row["BPSystolic"];
+        $BPDiastolic = $row["BPDiastolic"];
+        $PhysicalActivity = $row["PhysicalActivity"];
+        $MenstrualStatus = $row["MenstrualStatus"];
+        $SurgicalHistory = $row["SurgicalHistory"];
+        $SurgeryDate = $row["SurgeryDate"];
+        $doctorId = $row["doctorId"];
+        $dietId = $row["dietId"];
+        $exerciseId = $row["exerciseId"];
+    }
+    $conn->close();
 } else {
     echo '
             <script language="javascript">
