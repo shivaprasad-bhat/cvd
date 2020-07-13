@@ -79,6 +79,7 @@ $dvisitFrequency = ['Monthly', 'Weekly', 'Daily', 'Fortnightly', '2 Months', '3 
                             <option value="Irregular">Irregular</option>
                         </select>
                         <input class="form-control" type="text" name="sur-history" placeholder="Surgical History" value="<?php echo $SurgicalHistory; ?>">
+                        <label for="sur-date">Surgery Date</label>
                         <input class="form-control" type="date" name="sur-date" placeholder="Surgical Date" value="<?php echo $SurgeryDate; ?>">
                         <!-- Cnange goes here -->
                         <div>
