@@ -47,30 +47,6 @@ if (isset($_POST['submit'])) {
     $Registered = formatData($_POST["registered"], FALSE);
     $PatDesc = formatData($_POST["pat-desc"], TRUE);
 
-    //Recruitment Table
-    $LastDVisitDate = formatData($_POST["last-visit-date"], TRUE);
-    $PhyDiagnosis = formatData($_POST["phy-diagnosis"], TRUE);
-    $PhyComplianceAdvice = formatData($_POST["comp-advice"], TRUE);
-    $PhyMedicationAdvice = formatData($_POST["med-advice"], TRUE);
-    $DVisitFrequency = formatData($_POST["doctor-visit-frequency"], TRUE);
-    $Weight = formatData($_POST["weight"], FALSE);
-    $WUnitId = formatData($_POST["w-unit-id"], TRUE);
-    $Height = formatData($_POST["height"], FALSE);
-    $HUnitId = formatData($_POST["h-unit-id"], TRUE);
-    $WaistCircum = formatData($_POST["weist-circum"], FALSE);
-    $WCUnitId = formatData($_POST["wc-unit-id"], FALSE);
-    $WaistHipRatio = formatData($_POST["w-hip-ratio"], TRUE);
-    $HeartRate = formatData($_POST["heart-rate"], FALSE);
-    $RespiratoryRate = formatData($_POST["resp-rate"], FALSE);
-    $BPSystolic = formatData($_POST["bp-systolic"], FALSE);
-    $BPDiastolic = formatData($_POST["bp-diastolic"], FALSE);
-    $PhysicalActivity = formatData($_POST["phy-activity"], TRUE);
-    $MenstrualStatus = formatData($_POST["mensural-status"], TRUE);
-    $SurgicalHistory = formatData($_POST["sur-history"], TRUE);
-    $SurgeryDate = formatData($_POST["sur-date"], TRUE);
-    $doctorId = formatData($_POST["doctor-id"], FALSE);
-    $dietId = formatData($_POST["diet-id"], FALSE);
-    $exerciseId = formatData($_POST["excersise-id"], FALSE);
 
 
     $conn->autoCommit(FALSE);
@@ -86,21 +62,13 @@ if (isset($_POST['submit'])) {
     Relationship = $Relationship, IsOwnPhone = $IsOwnPhone,
     IsSmartPhone = $IsSmartPhone, PatDesc = $PatDesc, Registered = $Registered WHERE id = $id";
 
-    $query2 = "UPDATE patientrecruitment SET LastDVisitDate = $LastDVisitDate,
-    PhyDiagnosis = $PhyDiagnosis, PhyComplianceAdvice = $PhyComplianceAdvice, PhyMedicationAdvice = $PhyMedicationAdvice, 
-    DVisitFrequency = $DVisitFrequency, Weight = $Weight, WUnitId = $WUnitId, Height = $Height, HUnitId = $HUnitId,
-    WaistCircum = $WaistCircum, WCUnitId = $WCUnitId, WaistHipRatio = $WaistHipRatio, HeartRate = $HeartRate, 
-    RespiratoryRate = $RespiratoryRate, BPSystolic = $BPSystolic, BPDiastolic = $BPDiastolic, PhysicalActivity = $PhysicalActivity,
-    MenstrualStatus = $MenstrualStatus, SurgicalHistory = $SurgicalHistory, SurgeryDate = $SurgeryDate, doctorId = $doctorId, 
-    dietId = $dietId, exerciseId = $exerciseId WHERE patientId = $id";
 
-    // Execute
     $result1 = $conn->query($query1);
-    $result2 = $conn->query($query2);
 
 
 
-    if ($result1 === TRUE && $result2 === TRUE) {
+
+    if ($result1 === TRUE) {
         $conn->commit();
         $conn->autoCommit(TRUE);
         //Close Connection established
