@@ -40,9 +40,6 @@
                     <br>
                     <button class="buttonClass" type="submit" class="btn btn-primary">Login</button>
                     <div align="center">
-                        <a href="./register.php">Register new user</a>
-                    </div>
-                    <div align="center">
                         <a href="/cvd/src">Back To Home Screen</a>
                     </div>
                 </fieldset>

@@ -1,0 +1,41 @@
+.header-image {
+    float: left !important;
+}
+
+.top-header {
+    font-family: 'Comic Sans MS', cursive, sans-serif !important;
+}
+
+nav {
+    background-color: #8b0000 !important;
+}
+
+.nav-link {
+    color: #ffff !important;
+    background-color: #8b0000 !important;
+    margin-left: 30px !important;
+}
+
+.nav-link:hover {
+    color: black !important;
+}
+
+#header-text {
+    margin: 1%;
+    padding: 1%;
+    text-align: center;
+}
+#profile-form,
+#change-pass-form {
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#profile-form > *,
+#change-pass-form > * {
+    margin: 10px;
+}
+#submit-group,
+#reset-group {
+    text-align: center;
+}

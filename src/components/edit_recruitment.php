@@ -81,7 +81,7 @@ $dvisitFrequency = ['Monthly', 'Weekly', 'Daily', 'Fortnightly', '2 Months', '3 
                         <input class="form-control" type="text" name="sur-history" placeholder="Surgical History" value="<?php echo $SurgicalHistory; ?>">
                         <label for="sur-date">Surgery Date</label>
                         <input class="form-control" type="date" name="sur-date" placeholder="Surgical Date" value="<?php echo $SurgeryDate; ?>">
-                        <!-- Cnange goes here -->
+
                         <div>
                             <label for="doctor-id">Doctor Details</label>
                             <select class="form-control" name="doctor-id" id="doctor-id">

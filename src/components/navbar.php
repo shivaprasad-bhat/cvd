@@ -55,9 +55,10 @@ $_SESSION["page"] = isset($_SESSION["page"]) ? $_SESSION["page"] : "index";
             <!-- Login button, disabling -->
             <?php
             if (!isset($_SESSION['user'])) {
-                echo '<a class="nav-item nav-link link-text" href="/cvd/src/views/login.php">Hello Guest(Login)</a>';
+                echo '<a class="nav-item nav-link link-text" href="/cvd/src/views/login.php"><u>Login</u></a>';
             } else {
-                echo "<a class=\"nav-item nav-link link-text\" href=\"/cvd/src/scripts/php/logout.php\">Hello $userName(Logout)</a>";
+                echo "<a class=\"nav-item nav-link link-text\" href=\"/cvd/src/views/priofile.php\">Profile</a>";
+                echo "<a class=\"nav-item nav-link link-text\" href=\"/cvd/src/scripts/php/logout.php\">Logout</a>";
             }
             ?>
 
