@@ -15,7 +15,7 @@ if (isset($_POST['reset'])) {
             echo '
                 <script language="javascript">
                 alert("Password Updated. Please re-login")
-                window.location.href="/cvd/src/script/php/logout.php"
+                window.location.href="/cvd/src/scripts/php/logout.php"
                 </script>';
         } else {
             $conn->close();
