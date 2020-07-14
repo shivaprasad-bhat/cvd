@@ -4,32 +4,27 @@ if (isset($_POST['reset'])) {
     $pass = trim($_POST['pass']);
     $cpass = trim($_POST['cpass']);
     if ($pass === $cpass) {
-        $username = $_SESSION['user'];
+        $uname = $_SESSION['user'];
         require('./connect.php');
-        $conn->select_db("mysql");
-        $query = "ALTER USER '$username'@'localhost' IDENTIFIED BY '$pass'";
-
+        $query = "SET PASSWORD FOR '$uname'@'localhost' = PASSWORD('$pass')";
         $result = $conn->query($query);
 
-        if ($result === FALSE) {
-            echo $conn->error;
-        }
         $conn->close();
-        // if ($result === TRUE) {
-        //     $conn->close();
-        //     echo '
-        //         <script language="javascript">
-        //         alert("Password Updated")
-        //         window.location.href="/cvd/src/views/priofile.php"
-        //         </script>';
-        // } else {
-        //     $conn->close();
-        //     echo '
-        //         <script language="javascript">
-        //         alert("Something Went Wrong")
-        //         window.location.href="/cvd/src/views/priofile.php"
-        //         </script>';
-        // }
+        if ($result === TRUE) {
+            $conn->close();
+            echo '
+                <script language="javascript">
+                alert("Password Updated. Please re-login")
+                window.location.href="/cvd/src/script/php/logout.php"
+                </script>';
+        } else {
+            $conn->close();
+            echo '
+                <script language="javascript">
+                alert("Something Went Wrong")
+                window.location.href="/cvd/src/views/priofile.php"
+                </script>';
+        }
     } else {
         echo '
                 <script language="javascript">
