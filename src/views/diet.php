@@ -72,9 +72,7 @@ $_SESSION['page'] = 'diet';
 <body>
     <?php
     include_once('../components/navbar.php');
-
-
-
+    
     if (isset($_COOKIE["lang"])) {
         if ($_COOKIE["lang"] === "eng") {
             include_once('../components/diet_EN.php');

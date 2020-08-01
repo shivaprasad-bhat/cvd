@@ -73,6 +73,7 @@ $_SESSION["page"] = "contact-us";
         include_once('../components/contact_KAN.php');
     }
     include_once('../components/footer.php');
+    $_SESSION["page"] = "contactus";
     ?>
 
 </body>

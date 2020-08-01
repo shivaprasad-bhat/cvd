@@ -1,24 +1,25 @@
 <head>
-        <p id="header-content">
-            LIFESTYLE MODIFICATION
-        </p>
-    </head>
-    <section class="container">
-        <article class="card l-changes">
-            • Manage stress & anger. <br>
-            • Maintain a healthy weight.<br>
-            • Be physically active every day.<br>
-            • Quit smoking & alcohol.<br>
-            • Avoid other tobacco products.<br>
-            • Improve cholesterol levels & control blood pressure, blood sugar levels & other diseases as well.<br>
-            • Be social & friendly.<br>
-            • Get enough sleep.<br>
-            • Don’t sit for very long at one time.<br>
-        </article>
-    </section>
-    <section class="container">
-        <div class="card">
-            <div class="row">
+    <p id="header-content">
+        LIFESTYLE MODIFICATION
+    </p>
+</head>
+<section class="container">
+    <article class="card l-changes">
+        • Manage stress & anger. <br>
+        • Maintain a healthy weight.<br>
+        • Be physically active every day.<br>
+        • Quit smoking & alcohol.<br>
+        • Avoid other tobacco products.<br>
+        • Improve cholesterol levels & control blood pressure, blood sugar levels & other diseases as well.<br>
+        • Be social & friendly.<br>
+        • Get enough sleep.<br>
+        • Don’t sit for very long at one time.<br>
+    </article>
+</section>
+<section class="container">
+    <div class="card ">
+        <div class="row">
+            <div style="padding: 2% !important;">
                 <div class="col-md-3">
                     <img class="img-content" src="/cvd/src/resources/lifestyle-img/img1.png" alt="Image">
                 </div>
@@ -34,5 +35,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
-    </section>
+    </div>
+</section>

@@ -105,6 +105,7 @@ if (isset($_COOKIE["lang"])) {
     }
 
     include_once('../components/footer.php');
+    $_SESSION["page"] = "selfcare";
     ?>
 </body>
 

@@ -47,7 +47,7 @@ $_SESSION['page'] = 'self-care';
 
         .l-changes {
             margin-bottom: 3%;
-            padding-left: 2%;
+            padding: 2% !important;
         }
 
         .img-content {
@@ -77,6 +77,7 @@ if (isset($_COOKIE["lang"])) {
     }
     
     include_once('../components/footer.php');
+    $_SESSION["page"] = "lifestyle";
     ?>
 </body>
 
