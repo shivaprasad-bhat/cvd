@@ -7,4 +7,8 @@ if ($_SESSION["page"] === "index") {
     header("Location: /cvd/src/views/contactUs.php");
 } else if ($_SESSION["page"] === "diet") {
     header("Location: /cvd/src/views/diet.php");
+}else if ($_SESSION["page"] === "lifestyle") {
+    header("Location: /cvd/src/views/lifestyle.php");
+}else if ($_SESSION["page"] === "selfcare") {
+    header("Location: /cvd/src/views/selfCare.php");
 }
