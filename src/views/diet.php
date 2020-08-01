@@ -72,9 +72,9 @@ $_SESSION['page'] = 'diet';
 <body>
     <?php
     include_once('../components/navbar.php');
-    ?>
 
-    <?php
+
+
     if (isset($_COOKIE["lang"])) {
         if ($_COOKIE["lang"] === "eng") {
             include_once('./components/diet_EN.php');
@@ -85,9 +85,9 @@ $_SESSION['page'] = 'diet';
         //Refresh and set cookie
         header("Location: /cvd/src/");
     }
-    ?>
-    <?php
+
     include_once('../components/footer.php');
+    $_SESSION["page"] = "diet";
     ?>
 </body>
 

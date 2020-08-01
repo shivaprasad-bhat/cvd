@@ -63,13 +63,13 @@ $_SESSION["page"] = isset($_SESSION["page"]) ? $_SESSION["page"] : "index";
             ?>
 
             <!-- Language switch content based on Cookie -->
-            <!-- <?php
-                    if ($_COOKIE["lang"] === "eng") {
-                        echo '<a href="/cvd/src/scripts/php/switchLang.php?lang=kan" class="nav-item nav-link"><u>[Switch to Kannada]</u></a>';
-                    } else if ($_COOKIE["lang"] === "kan") {
-                        echo '<a href="/cvd/src/scripts/php/switchLang.php?lang=eng" class="nav-item nav-link"><u>[ಇಂಗ್ಲೀಷ್ ಭಾಷೆ ಬಳಸಿ]</u></a>';
-                    }
-                    ?> -->
+            <?php
+            if ($_COOKIE["lang"] === "eng") {
+                echo '<a href="/cvd/src/scripts/php/switchLang.php?lang=kan" class="nav-item nav-link"><u>[Switch to Kannada]</u></a>';
+            } else if ($_COOKIE["lang"] === "kan") {
+                echo '<a href="/cvd/src/scripts/php/switchLang.php?lang=eng" class="nav-item nav-link"><u>[ಇಂಗ್ಲೀಷ್ ಭಾಷೆ ಬಳಸಿ]</u></a>';
+            }
+            ?>
         </div>
     </div>
 </nav>

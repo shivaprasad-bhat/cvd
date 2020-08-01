@@ -85,6 +85,7 @@ include_once('./components/navbar.php');
 <?php
 include_once('./components/footer.php');
 $_SESSION["page"] = "index";
+
 ?>
 
 </body>
