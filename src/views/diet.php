@@ -77,9 +77,9 @@ $_SESSION['page'] = 'diet';
 
     if (isset($_COOKIE["lang"])) {
         if ($_COOKIE["lang"] === "eng") {
-            include_once('./components/diet_EN.php');
+            include_once('../components/diet_EN.php');
         } else if ($_COOKIE["lang"] === "kan") {
-            include_once('./components/diet_KAN.php');
+            include_once('../components/diet_KAN.php');
         }
     } else {
         //Refresh and set cookie
