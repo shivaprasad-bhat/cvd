@@ -1,5 +1,5 @@
 <?php
-if (!isset($_SESSION['user'])) session_start();
+if (session_status() == PHP_SESSION_NONE) session_start();
 if (isset($_POST['reset'])) {
     $pass = trim($_POST['pass']);
     $cpass = trim($_POST['cpass']);

@@ -1,5 +1,5 @@
 <?php
-if (!isset($_SESSION['user']))
+if (session_status() == PHP_SESSION_NONE)
     session_start();
 /**
  * Function to format the data given 

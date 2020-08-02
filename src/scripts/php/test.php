@@ -1,5 +1,5 @@
 <?php
-if (!isset($_SESSION['user']))
+if (session_status() == PHP_SESSION_NONE)
     session_start();
 if (isset($_POST["submit"])) {
     $investigationName = $_POST['one'];

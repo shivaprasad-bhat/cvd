@@ -1,6 +1,6 @@
 <?php
 #Start the session if not set
-if (!isset($_SESSION['user'])) {
+if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 $conn = new mysqli('localhost', strval($_SESSION['user']), strval($_SESSION['password']), 'CVDCareDB') or die('Error' . $conn->connect_error);

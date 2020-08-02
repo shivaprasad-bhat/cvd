@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if (!isset($_SESSION['user']))
+    header('Location: /cvd/src/');
+?>
+
 <html lang="en">
 
 <head>

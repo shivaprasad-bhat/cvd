@@ -1,5 +1,5 @@
 <?php
-if (!isset($_SESSION['user'])) {
+if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 if (!isset($_COOKIE["lang"])) {
@@ -37,8 +37,9 @@ $_SESSION["page"] = isset($_SESSION["page"]) ? $_SESSION["page"] : "index";
             <?php
             if (isset($_SESSION['user'])) {
                 echo '<a class="nav-item nav-link link-text" href="/cvd/src/views/survey.php">Patient Recruitment Form</a>';
+                echo '<a class="nav-item nav-link link-text" href="/cvd/src/views/collect_data.php">Data for App Install</a>';
                 echo '<a class="nav-item nav-link link-text" href="/cvd/src/views/treatment_schedule.php">Treatment Schedule</a>';
-                echo '<a class="nav-item nav-link link-text" href="/cvd/src/views/collect_data.php">Collect Data</a>';
+                echo '<a class="nav-item nav-link link-text" href="/cvd/src/views/ivr.php">IVR Schedule</a>';
                 echo '<a class="nav-item nav-link link-text" href="/cvd/src/views/update_patient.php">Update Patient Details</a>';
             } else {
                 echo '<a href="/cvd/src/" class="nav-item nav-link">About the Project</a>
@@ -56,18 +57,14 @@ $_SESSION["page"] = isset($_SESSION["page"]) ? $_SESSION["page"] : "index";
             <?php
             if (!isset($_SESSION['user'])) {
                 echo '<a class="nav-item nav-link link-text" href="/cvd/src/views/login.php"><u>Login</u></a>';
+                if ($_COOKIE["lang"] === "eng") {
+                    echo '<a href="/cvd/src/scripts/php/switchLang.php?lang=kan" class="nav-item nav-link"><u>[Switch to Kannada]</u></a>';
+                } else if ($_COOKIE["lang"] === "kan") {
+                    echo '<a href="/cvd/src/scripts/php/switchLang.php?lang=eng" class="nav-item nav-link"><u>[ಇಂಗ್ಲೀಷ್ ಭಾಷೆ ಬಳಸಿ]</u></a>';
+                }
             } else {
                 echo "<a class=\"nav-item nav-link link-text\" href=\"/cvd/src/views/priofile.php\">Profile</a>";
                 echo "<a class=\"nav-item nav-link link-text\" href=\"/cvd/src/scripts/php/logout.php\">Logout</a>";
-            }
-            ?>
-
-            <!-- Language switch content based on Cookie -->
-            <?php
-            if ($_COOKIE["lang"] === "eng") {
-                echo '<a href="/cvd/src/scripts/php/switchLang.php?lang=kan" class="nav-item nav-link"><u>[Switch to Kannada]</u></a>';
-            } else if ($_COOKIE["lang"] === "kan") {
-                echo '<a href="/cvd/src/scripts/php/switchLang.php?lang=eng" class="nav-item nav-link"><u>[ಇಂಗ್ಲೀಷ್ ಭಾಷೆ ಬಳಸಿ]</u></a>';
             }
             ?>
         </div>
