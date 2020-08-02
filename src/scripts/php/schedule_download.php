@@ -16,9 +16,16 @@ if (isset($_SESSION['user'])) {
                 $investigations[] = $row["KInvMName"];
             }
         }
-
-        $date = trim(htmlspecialchars(stripslashes($_POST["download-date"])));
-        $query = "SELECT * FROM treatmentschedule WHERE eventDate ='$date'";
+        $option = $_POST["option"];
+        $query = "SELECT * FROM treatmentschedule";
+        if ($option === "date-range") {
+            $from = $_POST["from-date"];
+            $to = $_POST["to-date"];
+            $query .= " WHERE eventDate BETWEEN '" . $from . "' AND '" . $to . "'";
+        } else if ($option === "s-date") {
+            $d = $_POST["download-date"];
+            $query .= " WHERE eventDate = '" . $d . "'";
+        }
         $file_name = "Sheet1.xls";
         $result = $conn->query($query);
         $contents = "<section><table class=\"table table-bordered\"><thead><tr><th>Name</th><th>Number</th><th>Message</th></tr></thead><tbody>";

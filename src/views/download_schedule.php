@@ -9,6 +9,8 @@
     <script src="/cvd/src/jquery/jquery.js"></script>
     <script src="/cvd/src/scripts/javascript/popper.js"></script>
     <script src="/cvd/src/scripts/javascript/bootstrap.min.js"></script>
+    <script src="/cvd/src/scripts/javascript/download_schedule.js"></script>
+
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
 
     <link rel="stylesheet" href="../css/common.css" />
@@ -40,6 +42,15 @@
             padding: 1%;
             text-align: center;
         }
+
+        form {
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+
+        form>div {
+            padding: 15px;
+        }
     </style>
 </head>
 
@@ -63,20 +74,32 @@
         <article class="row">
             <div class="col">
                 <form action="../scripts/php/schedule_download.php" method="post">
+                    <div class="form-group">
+                        <label for="option">Select Option</label>
+                        <select class="form-control" name="option" id="option">
+                            <option value="">-- Select Value --</option>
+                            <option value="s-date">Specific Date</option>
+                            <option value="date-range">Date Range</option>
+                        </select>
+                    </div>
                     <div class="form-group" id="date">
                         <label for="download-date">Download Date</label>
                         <input class="form-control" type="date" name="download-date" id="download-date">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="date-range">
+                        <label for="download-date">From Date</label>
+                        <input class="form-control" type="date" name="from-date" id="download-from-date">
+                        <label for="download-date">To Date</label>
+                        <input class="form-control" type="date" name="to-date" id="download-to-date">
+                    </div>
+                    <div class="form-group submit-group">
                         <input class="btn btn-success" type="submit" name="submit" value="Download Schedule">
                     </div>
                 </form>
             </div>
         </article>
     </section>
-    <script>
-        $('#download-date').val(new Date().toISOString().slice(0, 10));
-    </script>
+
 
 </body>
 
