@@ -109,7 +109,7 @@ if (isset($_SESSION['user'])) {
                         </div>
                         <div class="form-group" id="submit-group">
                             <div>
-                                <input type="submit" class="btn btn-success" name="submit" value="Update Profile">
+                                <input type="submit" class="btn btn-success" name="submit" value="Save">
                             </div>
                             <div>
                                 <button name="btn-reset" id="btn-change-password" class="btn btn-link">Change Password</button>
@@ -133,7 +133,7 @@ if (isset($_SESSION['user'])) {
                         </div>
                         <div id="reset-group">
                             <div>
-                                <input type="submit" value="Reset" name="reset" class="btn btn-warning">
+                                <input type="submit" value="Save" name="reset" class="btn btn-warning">
                             </div>
                             <div>
                                 <button class="btn btn-link" id="btn-backto-profile">Back To Profile</button>
