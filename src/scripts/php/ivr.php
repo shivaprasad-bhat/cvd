@@ -14,7 +14,7 @@ if (isset($_SESSION['user'])) {
         require('./connect.php');
         $option = formatData($_POST['ivr-options']);
         $filter = NULL;
-        $content = '<table class="table table-bordered"><thead class="thead-dark"><tr><th>Name</th><th>Number</th><th>Date</th></tr></thead><tbody>';
+        $content = '<table class="table table-bordered table-striped table-light"><thead class="thead-dark"><tr><th>Name</th><th>Number</th><th>Date</th></tr></thead><tbody>';
         if ($option === 'specific-date') {
             $date = formatData($_POST['s-date']);
             $filter = "Options Selected : Specific Date - $date";

@@ -24,29 +24,32 @@ $_SESSION["page"] = isset($_SESSION["page"]) ? $_SESSION["page"] : "index";
         </div>
     </article>
 </section>
-<nav class="navbar navbar-expand-md" style="z-index: 1;">
 
-    <button type="button" class="navbar-toggler bg-light" data-toggle="collapse" data-target="#navbarCollapse">
-        <span class="navbar-toggler-icon">=</span>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-md navbar-dark" style="z-index: 1;">
+
+    <!-- Toggler/collapsibe Button -->
+    <button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" style="border: 1px solid white;">
+        <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Rights side nav items -->
-    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+    <div style="color: white !important;" class="collapse navbar-collapse justify-content-between" id="collapsibleNavbar">
         <div class="navbar-nav" style="text-align: center;">
 
             <?php
             if (isset($_SESSION['user'])) {
-                echo '<a class="nav-item nav-link link-text" href="/cvd/src/views/survey.php">Patient Recruitment Form</a>';
-                echo '<a class="nav-item nav-link link-text" href="/cvd/src/views/collect_data.php">Data for App Install</a>';
-                echo '<a class="nav-item nav-link link-text" href="/cvd/src/views/treatment_schedule.php">Treatment Schedule</a>';
-                echo '<a class="nav-item nav-link link-text" href="/cvd/src/views/ivr.php">IVR Schedule</a>';
-                echo '<a class="nav-item nav-link link-text" href="/cvd/src/views/update_patient.php">Update Patient Details</a>';
+                echo '<a style="color:white;" class="nav-item nav-link link-text" href="/cvd/src/views/survey.php">Patient Recruitment Form</a>';
+                echo '<a style="color:white;" class="nav-item nav-link link-text" href="/cvd/src/views/collect_data.php">Data for App Install</a>';
+                echo '<a style="color:white;" class="nav-item nav-link link-text" href="/cvd/src/views/treatment_schedule.php">Treatment Schedule</a>';
+                echo '<a style="color:white;" class="nav-item nav-link link-text" href="/cvd/src/views/ivr.php">IVR Schedule</a>';
+                echo '<a style="color:white;" class="nav-item nav-link link-text" href="/cvd/src/views/update_patient.php">Update Patient Details</a>';
+                echo '<a style="color:white;" class="nav-item nav-link link-text" href="#">Patient Symptom Alert</a>';
             } else {
-                echo '<a href="/cvd/src/" class="nav-item nav-link">About the Project</a>
-                    <a href="/cvd/src/views/selfCare.php" class="nav-item nav-link">Self Care</a>
-                    <a href="/cvd/src/views/diet.php" class="nav-item nav-link">Diet & Supplements</a>
-                     <a href="/cvd/src/views/lifestyle.php" class="nav-item nav-link">Exercise & Life Style Changes</a>
-                    <a href="/cvd/src/views/contactUs.php" class="nav-item nav-link">Contact Us</a>';
+                echo '<a style="color:white;" href="/cvd/src/" class="nav-item nav-link">About the Project</a>
+                    <a style="color:white;" href="/cvd/src/views/selfCare.php" class="nav-item nav-link">Self Care</a>
+                    <a style="color:white;" href="/cvd/src/views/diet.php" class="nav-item nav-link">Diet & Supplements</a>
+                     <a style="color:white;" href="/cvd/src/views/lifestyle.php" class="nav-item nav-link">Exercise & Life Style Changes</a>
+                    <a style="color:white;" href="/cvd/src/views/contactUs.php" class="nav-item nav-link">Contact Us</a>';
             }
             ?>
         </div>
@@ -56,15 +59,15 @@ $_SESSION["page"] = isset($_SESSION["page"]) ? $_SESSION["page"] : "index";
             <!-- Login button, disabling -->
             <?php
             if (!isset($_SESSION['user'])) {
-                echo '<a class="nav-item nav-link link-text" href="/cvd/src/views/login.php"><u>Login</u></a>';
+                echo '<a style="color:white;" class="nav-item nav-link link-text" href="/cvd/src/views/login.php"><u>Login</u></a>';
                 if ($_COOKIE["lang"] === "eng") {
-                    echo '<a href="/cvd/src/scripts/php/switchLang.php?lang=kan" class="nav-item nav-link"><u>[Switch to Kannada]</u></a>';
+                    echo '<a style="color:white;" href="/cvd/src/scripts/php/switchLang.php?lang=kan" class="nav-item nav-link"><u>[Switch to Kannada]</u></a>';
                 } else if ($_COOKIE["lang"] === "kan") {
-                    echo '<a href="/cvd/src/scripts/php/switchLang.php?lang=eng" class="nav-item nav-link"><u>[ಇಂಗ್ಲೀಷ್ ಭಾಷೆ ಬಳಸಿ]</u></a>';
+                    echo '<a style="color:white;" href="/cvd/src/scripts/php/switchLang.php?lang=eng" class="nav-item nav-link"><u>[ಇಂಗ್ಲೀಷ್ ಭಾಷೆ ಬಳಸಿ]</u></a>';
                 }
             } else {
-                echo "<a class=\"nav-item nav-link link-text\" href=\"/cvd/src/views/priofile.php\">Profile</a>";
-                echo "<a class=\"nav-item nav-link link-text\" href=\"/cvd/src/scripts/php/logout.php\">Logout</a>";
+                echo "<a style=\"color:white;\" class=\"nav-item nav-link link-text\" href=\"/cvd/src/views/priofile.php\">Profile</a>";
+                echo "<a style=\"color:white;\" class=\"nav-item nav-link link-text\" href=\"/cvd/src/scripts/php/logout.php\">Logout</a>";
             }
             ?>
         </div>
