@@ -43,7 +43,7 @@ $_SESSION["page"] = isset($_SESSION["page"]) ? $_SESSION["page"] : "index";
                 echo '<a style="color:white;" class="nav-item nav-link link-text" href="/cvd/src/views/treatment_schedule.php">Treatment Schedule</a>';
                 echo '<a style="color:white;" class="nav-item nav-link link-text" href="/cvd/src/views/ivr.php">IVR Schedule</a>';
                 echo '<a style="color:white;" class="nav-item nav-link link-text" href="/cvd/src/views/update_patient.php">Update Patient Details</a>';
-                echo '<a style="color:white;" class="nav-item nav-link link-text" href="#">Patient Symptom Alert</a>';
+                echo '<a style="color:white;" class="nav-item nav-link link-text" href="/cvd/src/views/patient_symptoms.php">Patient Symptom Alert</a>';
             } else {
                 echo '<a style="color:white;" href="/cvd/src/" class="nav-item nav-link">About the Project</a>
                     <a style="color:white;" href="/cvd/src/views/selfCare.php" class="nav-item nav-link">Self Care</a>

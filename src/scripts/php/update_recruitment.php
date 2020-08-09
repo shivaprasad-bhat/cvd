@@ -24,7 +24,7 @@ function formatData($string, $isString)
 if (isset($_POST['submit'])) {
     require('./connect.php');
     $id = formatData($_POST["pat-id"], FALSE);
-    //Recruitment Table
+    // Recruitment Table
     $LastDVisitDate = formatData($_POST["last-visit-date"], TRUE);
     $PhyDiagnosis = formatData($_POST["phy-diagnosis"], TRUE);
     $PhyComplianceAdvice = formatData($_POST["comp-advice"], TRUE);
@@ -49,8 +49,14 @@ if (isset($_POST['submit'])) {
     $dietId = formatData($_POST["diet-id"], FALSE);
     $exerciseId = formatData($_POST["excersise-id"], FALSE);
 
+    $invs = $_POST['inv'];
+    $freqs = $_POST['freq'];
+    $surveyDate = date('Y-m-d');
+
+
     $conn->autoCommit(FALSE);
     $conn->begin_transaction();
+
 
     $query1 = "UPDATE patientrecruitment SET LastDVisitDate = $LastDVisitDate,
     PhyDiagnosis = $PhyDiagnosis, PhyComplianceAdvice = $PhyComplianceAdvice, PhyMedicationAdvice = $PhyMedicationAdvice, 
@@ -62,10 +68,25 @@ if (isset($_POST['submit'])) {
 
     $query2 = "UPDATE patientdoctor SET DId = $doctorId WHERE patientId = $id";
 
+
     $result1 = $conn->query($query1);
     $result2 = $conn->query($query2);
 
-    if ($result1 === TRUE) {
+    $x = 0;
+    $invError = FALSE;
+    if (count($invs) > 0) {
+        $dQuery = "DELETE FROM patientinvordered WHERE patientId = $id";
+        $conn->query($dQuery);
+    }
+    for ($x = 0; $x < count($invs); $x++) {
+        $iid = intval($invs[$x]);
+        $query = "INSERT INTO patientinvordered(patientId, STDate, investigationId, Frequency) VALUES($id, '$surveyDate', $iid, '$freqs[$x]')";
+        $result3 = $conn->query($query);
+        if ($result3 === FALSE)
+            $invError = TRUE;
+    }
+
+    if ($result1 === TRUE && $result2 === TRUE && $invError === FALSE) {
         $conn->commit();
         $conn->autoCommit(TRUE);
         //Close Connection established

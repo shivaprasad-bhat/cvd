@@ -1,0 +1,38 @@
+footer {
+    position: absolute;
+}
+header-image {
+    float: left;
+}
+
+.top-header {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+nav {
+    background-color: #8b0000;
+}
+
+.nav-link {
+    color: #ffff;
+    background-color: #8b0000;
+    margin-left: 30px;
+}
+
+.nav-link:hover {
+    color: black;
+}
+
+form {
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+form > div {
+    margin: 20px;
+}
+
+#main,
+#track-table {
+    margin-top: 3% !important;
+}

@@ -1,5 +1,34 @@
 <?php
 $dvisitFrequency = ['Monthly', 'Weekly', 'Daily', 'Fortnightly', '2 Months', '3 Months', '6 Months', 'Yearly'];
+include_once('../scripts/php/form_selection_queries.php');
+$conn = new mysqli('localhost', 'root', '', 'CVDCareDB') or die('Connection Failed');
+$query = "SELECT * FROM investmaster";
+$invest = array();
+$invest[] = "";        //Assign index 0 null
+$result = $conn->query($query);
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $invest[] = $row['InvMName'];
+    }
+}
+$query = "SELECT * FROM `patientinvordered` WHERE patientId = $id";
+
+
+$result = $conn->query($query);
+$table = '<tbody>';
+$hInv = "";
+$hFreq = "";
+$del = "<input type='checkbox' name='record'>";
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $iid = intval($row['investigationId']);
+        $ifreq = $row['Frequency'];
+        $hInv = "<input type=\"hidden\" name=\"inv[]\" value=\"$iid\">";
+        $hFreq = "<input type=\"hidden\" name=\"freq[]\" value=\"$ifreq\">";
+        $table .= '<tr><td>' . $invest[$iid] . '</td><td>' . $row['Frequency'] . '</td><td>' . $del . $hInv . $hFreq . '</td></tr>';
+    }
+}
+$table .= '</tbody>';
 ?>
 
 <head class="container">
@@ -124,10 +153,54 @@ $dvisitFrequency = ['Monthly', 'Weekly', 'Daily', 'Fortnightly', '2 Months', '3 
                                 ?>
                             </select>
                         </div>
+                        <label for="inv-table">Investigations</label>
+                        <p> (Please select appropriate checkbox to delete perticular row*)</p>
+                        <div id="invests">
+
+                            <table class="table table-bordered table-light table-striped" id="inv-table">
+                                <thead>
+                                    <tr>
+                                        <th>Investigation</th>
+                                        <th>Frequency</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <?php
+                                echo $table;
+                                ?>
+                            </table>
+                            <label for="investigation-name">Investigation Name</label>
+                            <select name="investigation-name" id="investigation-name" class="form-control" required>
+                                <?php
+                                $i = 0;
+                                foreach ($invName as $inv) {
+                                    echo '<option value="' . trim($invId[$i]) . '">' . $inv . '</option>';
+                                    $i++;
+                                }
+                                ?>
+                            </select>
+                            <label for="investigation-frequency">Frequency</label>
+                            <select class="form-control" name="investigation-frequency" id="investigation-frequency" required>
+                                <option value="daily">Daily</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="fortnightly">Fortnightly</option>
+                                <option value="Monthly">Monthly</option>
+                                <option value="2 Months">2 Months</option>
+                                <option value="3 Months">3 Months</option>
+                                <option value="6 Months" selected>6 Months</option>
+                                <option value="Yearly">Yearly</option>
+                            </select>
+                            <br>
+                            <div align="center">
+                                <button type="button" class="button btn" id="add">Add</button>
+                                <button type="button" class="button btn delete" id="delete">Delete Selected</button>
+                            </div>
+                        </div>
+                        <hr>
                         <div align="center" class="form-group">
                             <br>
                             <input type="submit" value="submit" name="submit" class="btn btn-success">
-                            <br>
+                            <br> <br>
                             <div align="center">
                                 <a href="./collect_data.php">Go Back To Collect Data Form</a>
                             </div> <br>

@@ -73,7 +73,54 @@ if (isset($_SESSION['user'])) {
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/edit.css" />
+    <script>
+        $(document).ready(() => {
+            $('.delete').click((e) => {
+                debugger;
+                e.preventDefault();
+                $('table tbody')
+                    .find('input[name="record"]')
+                    .each(function() {
+                        if ($(this).is(':checked')) {
+                            $(this).parents('tr').remove();
+                        }
+                    });
+            });
+            $('#add').click(function(e) {
+                e.preventDefault();
+                debugger;
+                let investigation = document.getElementById('investigation-name');
+                let frequency = document.getElementById('investigation-frequency');
+                let text = investigation.options[investigation.selectedIndex].text;
+                frequency = frequency.value;
+                const table = document.getElementById('inv-table');
+                row = table.insertRow(1);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
 
+                var x = document.createElement('INPUT');
+                x.setAttribute('type', 'hidden');
+                x.setAttribute('name', 'inv[]');
+                x.setAttribute('value', investigation.value);
+
+                var y = document.createElement('INPUT');
+                y.setAttribute('type', 'hidden');
+                y.setAttribute('name', 'freq[]');
+                y.setAttribute('value', frequency);
+
+                var checkbox = document.createElement('INPUT');
+                checkbox.setAttribute('type', 'checkbox');
+                checkbox.setAttribute('name', 'record');
+
+                cell1.innerHTML = text;
+                cell2.innerHTML = frequency;
+                cell3.appendChild(checkbox)
+                cell3.appendChild(x);
+                cell3.appendChild(y);
+            })
+        });
+    </script>
 </head>
 
 <body onload="loadForm();">
