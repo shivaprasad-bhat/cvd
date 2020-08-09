@@ -1,7 +1,11 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 $dvisitFrequency = ['Monthly', 'Weekly', 'Daily', 'Fortnightly', '2 Months', '3 Months', '6 Months', 'Yearly'];
 include_once('../scripts/php/form_selection_queries.php');
-$conn = new mysqli('localhost', 'root', '', 'CVDCareDB') or die('Connection Failed');
+$conn = new mysqli('localhost', $_SESSION['user'], $_SESSION['password'], 'CVDCareDB') or die("Connection failed: " . $conn->connect_error);
+
 $query = "SELECT * FROM investmaster";
 $invest = array();
 $invest[] = "";        //Assign index 0 null
@@ -12,7 +16,6 @@ if ($result->num_rows > 0) {
     }
 }
 $query = "SELECT * FROM `patientinvordered` WHERE patientId = $id";
-
 
 $result = $conn->query($query);
 $table = '<tbody>';
