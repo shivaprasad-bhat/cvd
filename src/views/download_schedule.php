@@ -65,7 +65,7 @@
             <div class="col">
                 <div id="page-header">
                     <h1>Download Schedule</h1>
-                    <a href="./treatment_schedule.php"><u>Back to Treatment Schedule</u></a>
+                    <a href="./schedule_options.php"><u>Back to Schedule</u></a>
                 </div>
             </div>
         </div>

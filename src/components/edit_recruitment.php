@@ -202,10 +202,10 @@ $table .= '</tbody>';
                         <hr>
                         <div align="center" class="form-group">
                             <br>
-                            <input type="submit" value="submit" name="submit" class="btn btn-success">
+                            <input type="submit" value="Save" name="submit" class="btn btn-success">
                             <br> <br>
                             <div align="center">
-                                <a href="./collect_data.php">Go Back To Collect Data Form</a>
+                                <a href="./collect_data.php">Cancel</a>
                             </div> <br>
                         </div>
                     </div>

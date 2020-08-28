@@ -31,13 +31,13 @@
         <div class="row">
             <div class="col">
                 <div id="page-header">
-                    <h1>Schedule</h1>
+                    <h1>Treatment Schedule</h1>
                     <a href="./treatment_schedule.php">Back to Treatment Schedule</a>
                 </div>
             </div>
         </div>
     </head>
-    <br><br>
+
     <?php
     $contents = "";
     $filter = "";
@@ -78,25 +78,15 @@
             }
         }
         $query .= " ORDER BY eventDate";
-
-        echo '
-        <head class="container" style="margin-top:0px;">
-            <div class="row">
-                <div class="col">
-                    <div style="text-align: center;">
-                        <h2>Filter : ' . $filter . '</h2>
-                    </div>
-                </div>
-            </div>
-        </head>
-        ';
         require('../scripts/php/connect.php');
         $events = array("", "Medication", "Doctor Visit", "Investigations", "Symptoms");
         $result = $conn->query($query);
         $description = "NA";
+        $c = 0;
         if ($result->num_rows > 0) {
-            $contents = '<section class="container"><div class="row"><div class="col"><div class="table-responsive"><table class="table table-bordered table-light table-striped"><thead><tr><th>Patient Id</th><th>Mobile Num</th><th>Date</th><th>Event</th><th>Description</th></tr></thead><tbody>';
+            $contents = '<section class="container" style="border: 1px solid black; padding: 10px; border-radius: 10px"><div class="row"><div class="col"><div class="table-responsive"><table class="table table-bordered table-light table-striped"><thead><tr><th>Patient Id</th><th>Mobile Num</th><th>Date</th><th>Event</th><th>Description</th></tr></thead><tbody>';
             while ($row = $result->fetch_array()) {
+                $c++;
                 $eType = intval($row["eventType"]);
                 if ($eType === 3) {
                     if ($row["InvMName"] == NULL) {
@@ -120,8 +110,21 @@
             }
             $contents .= "</tbody></table></div></div></div></section>";
         }
-        echo $contents;
         $conn->close();
+
+        echo '
+        <head class="container" style="margin-top:0px;">
+            <div class="row">
+                <div class="col">
+                    <div style="text-align: center;">
+                        <h3>Filter : ' . $filter . '</h3>
+                        <p>Total Number of schedules selected: ' . $c . '</p>
+                    </div>
+                </div>
+            </div>
+        </head>
+        ';
+        echo $contents;
     }
     ?>
 </body>

@@ -28,6 +28,12 @@ require_once("../scripts/php/form_selection_queries.php");
         footer {
             position: absolute;
         }
+
+        ::placeholder {
+            color: gray !important;
+            opacity: 0.5 !important;
+            /* Firefox */
+        }
     </style>
 </head>
 

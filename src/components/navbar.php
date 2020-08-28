@@ -40,7 +40,7 @@ $_SESSION["page"] = isset($_SESSION["page"]) ? $_SESSION["page"] : "index";
             if (isset($_SESSION['user'])) {
                 echo '<a style="color:white;" class="nav-item nav-link link-text" href="/cvd/src/views/survey.php">Patient Recruitment Form</a>';
                 echo '<a style="color:white;" class="nav-item nav-link link-text" href="/cvd/src/views/collect_data.php">Data for App Install</a>';
-                echo '<a style="color:white;" class="nav-item nav-link link-text" href="/cvd/src/views/treatment_schedule.php">Treatment Schedule</a>';
+                echo '<a style="color:white;" class="nav-item nav-link link-text" href="/cvd/src/views/schedule_options.php">Treatment Schedule</a>';
                 echo '<a style="color:white;" class="nav-item nav-link link-text" href="/cvd/src/views/ivr.php">IVR Schedule</a>';
                 echo '<a style="color:white;" class="nav-item nav-link link-text" href="/cvd/src/views/update_patient.php">Update Patient Details</a>';
                 echo '<a style="color:white;" class="nav-item nav-link link-text" href="/cvd/src/views/patient_symptoms.php">Patient Symptom Alert</a>';

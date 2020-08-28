@@ -185,12 +185,12 @@ $lang = ['English Only', 'Kannada Only', 'English & Kannada', 'null'];
                         </div>
                         <br>
                         <div align="center">
-                            <input class="btn btn-success" type="submit" name="submit" value="Update"> <br><br>
+                            <input class="btn btn-success" type="submit" name="submit" value="Save"> <br><br>
                         </div>
                     </div>
             </div>
             <div align="center">
-                <a href="./collect_data.php">Go Back To Collect Data Form</a>
+                <a href="./collect_data.php">Cancel</a>
             </div> <br>
             </form>
         </div>

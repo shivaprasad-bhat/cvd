@@ -73,6 +73,13 @@ if (isset($_SESSION['user'])) {
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/edit.css" />
+    <style>
+        ::placeholder {
+            color: gray !important;
+            opacity: 0.5 !important;
+            /* Firefox */
+        }
+    </style>
     <script>
         $(document).ready(() => {
             $('.delete').click((e) => {

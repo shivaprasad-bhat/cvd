@@ -45,3 +45,8 @@ footer {
 #body-text {
     text-align: justify;
 }
+
+::placeholder {
+    color: gray !important;
+    opacity: 0.5 !important; /* Firefox */
+}

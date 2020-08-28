@@ -62,11 +62,11 @@
                             <input class="radio-inline" id="registered-no" name="registered" value="2" type="radio"> No
                         </div>
                         <div align="center" class="form-group">
-                            <input type="submit" value="submit" name="submit" class="btn btn-success">
+                            <input type="submit" value="Save" name="submit" class="btn btn-success">
                         </div>
                     </div>
                     <div align="center">
-                        <a href="./collect_data.php">Go Back To Collect Data Form</a>
+                        <a href="./collect_data.php">Cancel</a>
                     </div> <br>
                 </form>
             </div>

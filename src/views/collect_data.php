@@ -16,6 +16,13 @@ require_once("../scripts/php/form_selection_queries.php");
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/collect_data.css" />
     <script src="../scripts/javascript/collect_data.js"></script>
+    <style>
+        ::placeholder {
+            color: gray !important;
+            opacity: 0.5 !important;
+            /* Firefox */
+        }
+    </style>
 
 </head>
 
