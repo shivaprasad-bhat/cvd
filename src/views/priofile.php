@@ -40,7 +40,11 @@ if (isset($_SESSION['user'])) {
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/profile.css" />
     <style>
-
+        ::placeholder {
+            color: gray !important;
+            opacity: 0.5 !important;
+            /* Firefox */
+        }
     </style>
 </head>
 
@@ -54,6 +58,7 @@ if (isset($_SESSION['user'])) {
                 <div id="header-text">
                     <h1>Profile</h1>
                     <h4 align="center">Caregiver: <?php echo $user; ?></h4>
+                    <a class="btn btn-info" target="_blank" href="https://outlook.com/login">Click here to Connect your email server</a>
                 </div>
             </div>
         </div>
@@ -136,7 +141,7 @@ if (isset($_SESSION['user'])) {
                                 <input type="submit" value="Save" name="reset" class="btn btn-warning">
                             </div>
                             <div>
-                                <button class="btn btn-link" id="btn-backto-profile">Back To Profile</button>
+                                <button class="btn btn-link" id="btn-backto-profile">Cancel</button>
                             </div>
                         </div>
                     </form>
