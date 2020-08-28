@@ -86,9 +86,9 @@ $table .= '</tbody>';
                             <option value="cms">CMs</option>
                             <option value="ft">Fts</option>
                         </select>
-                        <input class="form-control" type="text" name="weist-circum" id="weist-circum" placeholder="Weist Cirum" value="<?php echo $WaistCircum ?>">
-                        <input class="form-control" type="text" name="wc-unit-id" placeholder="Weist Circum Unit Id" value="<?php echo $WCUnitId; ?>">
-                        <label for="w-hip-ratio">Weist Hip Ratio</label>
+                        <input class="form-control" type="text" name="weist-circum" id="weist-circum" placeholder="Waist Cirum" value="<?php echo $WaistCircum ?>">
+                        <input class="form-control" type="text" name="wc-unit-id" placeholder="Waist Circum Unit Id" value="<?php echo $WCUnitId; ?>">
+                        <label for="w-hip-ratio">Waist Hip Ratio</label>
                         <select class="form-control" name="w-hip-ratio" id="w-hip-ratio" value="<?php ?>">
                             <option value="null">-- Select --</option>
                             <option value="cms">CMs</option>
